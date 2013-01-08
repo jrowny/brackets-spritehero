@@ -46,16 +46,7 @@ define(function (require, exports, module) {
             shWindow.addEventListener('load', function () {
                 shWindow.$('body').on('getCSS', function (event, css) {
                     var editor = EditorManager.getCurrentFullEditor();
-                    var document = DocumentManager.getCurrentDocument();
-                    var pos = editor.getCursorPos();
-                    var line = document.getLine(pos.line);
-                    var s,
-                        lines = css.split("\n");
-                    for (s = 0; s < lines.length; s++) {
-                        editor._codeMirror.setLine(pos.line, lines[s]);
-                        editor._codeMirror.indentLine(pos.line);
-                        pos.line++;
-                    }
+                    editor._codeMirror.setValue(css);
                     EditorManager.focusEditor();
                     shWindow.close();
                 });
