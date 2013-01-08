@@ -1,0 +1,3 @@
+[submodule "SpriteHero"]
+	path = SpriteHero
+	url = git@github.com:jrowny/SpriteHero
